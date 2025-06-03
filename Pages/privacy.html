@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسة الخصوصية - EduRise</title>
+    <link rel="icon" href="../images/EduRise Ico.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #10b981;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --accent: #f59e0b;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: 800;
+        }
+        
+        .logo i {
+            color: var(--secondary);
+            font-size: 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Policy Hero */
+        .policy-hero {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        
+        .policy-hero h1 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .policy-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--dark);
+        }
+        
+        /* Policy Content */
+        .policy-content {
+            padding: 80px 0;
+        }
+        
+        .policy-section {
+            margin-bottom: 60px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .policy-section h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .policy-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .policy-section h3 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin: 30px 0 15px;
+        }
+        
+        .policy-section p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .policy-list {
+            padding-right: 20px;
+            margin: 20px 0;
+        }
+        
+        .policy-list li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-right: 25px;
+        }
+        
+        .policy-list li::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 10px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+        }
+        
+        .highlight-box {
+            background-color: rgba(16, 185, 129, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            border-right: 4px solid var(--secondary);
+            margin: 25px 0;
+        }
+        
+        .contact-info-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            flex: 1;
+            min-width: 250px;
+            background-color: rgba(37, 99, 235, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .contact-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .contact-item p {
+            margin: 0;
+        }
+        
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-item a:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .footer-links i {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .policy-hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .policy-section {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .policy-hero {
+                padding: 130px 0 60px;
+            }
+            
+            .policy-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .policy-section h2 {
+                font-size: 1.7rem;
+            }
+            
+            .policy-section h3 {
+                font-size: 1.3rem;
+            }
+        }
+        
+        /* Scroll animation */
+        .reveal {
+            position: relative;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 1s ease;
+        }
+        
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h1>EduRise</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">الرئيسية</a></li>
+                    <li><a href="../index.html#about">نبذة عنا</a></li>
+                    <li><a href="../index.html#features">المميزات</a></li>
+                    <li><a href="../index.html#download">تحميل التطبيق</a></li>
+                    <li><a href="../index.html#contact">تواصل معنا</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Policy Hero -->
+    <section class="policy-hero">
+        <div class="container">
+            <h1>سياسة الخصوصية لـ EduRise</h1>
+            <p>آخر تحديث: 3 يونيو 2025</p>
+        </div>
+    </section>
+
+    <!-- Policy Content -->
+    <section class="policy-content">
+        <div class="container">
+            <div class="policy-section reveal">
+                <h2>مقدمة</h2>
+                <p>نحن في EduRise ندرك أهمية خصوصيتك ونلتزم بحماية معلوماتك الشخصية. توضح سياسة الخصوصية هذه كيفية جمعنا واستخدامنا ومشاركة معلوماتك عندما تستخدم تطبيق EduRise والخدمات المرتبطة به.</p>
+                <p>باستخدامك لخدماتنا، فإنك توافق على ممارسات الخصوصية الموضحة في هذه الوثيقة. نوصي بقراءة هذه السياسة بعناية لفهم كيفية تعاملنا مع معلوماتك.</p>
+            </div>
+            
+            <div class="policy-section reveal">
+                <h2>المعلومات التي نجمعها</h2>
+                
+                <h3>المعلومات التي تقدمها لنا:</h3>
+                <ul class="policy-list">
+                    <li>معلومات التسجيل: الاسم، البريد الإلكتروني، رقم الهاتف، المؤسسة التعليمية، الدور (طالب، معلم، إداري، ولي أمر)</li>
+                    <li>المعلومات الأكاديمية: المواد الدراسية، الجدول الزمني، الدرجات، الحضور، والمهام</li>
+                    <li>معلومات التواصل: الرسائل، التعليقات، والملاحظات التي تشاركها عبر النظام</li>
+                    <li>معلومات الدفع: عند الاشتراك في الخدمات المميزة (إذا وجدت)</li>
+                </ul>
+                
+                <h3>المعلومات التي نجمعها تلقائيًا:</h3>
+                <ul class="policy-list">
+                    <li>معلومات الجهاز: نوع الجهاز، نظام التشغيل، إصدار التطبيق، ومعرفات الجهاز</li>
+                    <li>معلومات الاستخدام: تفاعلك مع التطبيق، الصفحات التي تزورها، الميزات التي تستخدمها، ومدة الاستخدام</li>
+                    <li>معلومات الموقع: إذا منحت الإذن، نجمع معلومات الموقع لخدمات معينة مثل تسجيل الحضور</li>
+                    <li>ملفات تعريف الارتباط (الكوكيز): لتحسين تجربة المستخدم وتذكر التفضيلات</li>
+                </ul>
+            </div>
+            
+            <div class="policy-section reveal">
+                <h2>كيف نستخدم معلوماتك</h2>
+                <p>نستخدم المعلومات التي نجمعها للأغراض التالية:</p>
+                
+                <ul class="policy-list">
+                    <li>تقديم وتشغيل الخدمات التعليمية وتجربة مستخدم مخصصة</li>
+                    <li>تحسين وتطوير التطبيق والخدمات المقدمة</li>
+                    <li>تواصل فعال بين أطراف العملية التعليمية (المدارس، المعلمين، الطلاب، أولياء الأمور)</li>
+                    <li>إرسال إشعارات مهمة وتحديثات حول التطبيق</li>
+                    <li>تحليل استخدام التطبيق لأغراض البحث والتطوير</li>
+                    <li>تلبية المتطلبات القانونية والتنظيمية</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <p><strong>ملاحظة هامة:</strong> لا نبيع معلوماتك الشخصية لأطراف ثالثة لأغراض تسويقية. نحن نستخدم المعلومات فقط لتحسين تجربتك التعليمية وتقديم خدماتنا.</p>
+                </div>
+            </div>
+            
+            <div class="policy-section reveal">
+                <h2>مشاركة المعلومات</h2>
+                <p>قد نشارك معلوماتك في الحالات التالية:</p>
+                
+                <ul class="policy-list">
+                    <li>مع المدارس والمؤسسات التعليمية المسجلة في النظام لأغراض تعليمية</li>
+                    <li>مع مزودي الخدمات الذين يساعدوننا في تشغيل التطبيق (مثل استضافة البيانات، التحليلات، الدعم الفني) مع التزامهم بسرية المعلومات</li>
+                    <li>عندما يكون ذلك مطلوبًا بموجب القانون أو للاستجابة لإجراء قانوني</li>
+                    <li>في حالة دمج أو استحواذ على الشركة، مع ضمان استمرار حماية خصوصيتك</li>
+                </ul>
+            </div>
+            
+            <div class="policy-section reveal">
+                <h2>حماية المعلومات</h2>
+                <p>نحن نولي أمن معلوماتك أولوية قصوى ونستخدم إجراءات أمنية تقنية وإدارية لحماية معلوماتك من الوصول غير المصرح به أو الفقدان أو الإساءة:</p>
+                
+                <ul class="policy-list">
+                    <li>تشفير البيانات أثناء النقل والتخزين</li>
+                    <li>مراجعات أمنية منتظمة للبنية التحتية</li>
+                    <li>الوصول المحدود للموظفين الذين يحتاجون إلى المعلومات لأداء مهامهم</li>
+                    <li>تحديثات أمنية منتظمة للتطبيق والأنظمة</li>
+                </ul>
+                
+                <p>بينما نبذل جهودًا معقولة لحماية معلوماتك، لا يمكن ضمان أمان الإنترنت بنسبة 100%. نوصيك بحماية كلمات مرورك وإبلاغنا فورًا بأي استخدام غير مصرح به لحسابك.</p>
+            </div>
+            
+            <div class="policy-section reveal">
+                <h2>حقوقك في خصوصيتك</h2>
+                <p>لديك حقوق ��عينة تتعلق بمعلوماتك الشخصية:</p>
+                
+                <ul class="policy-list">
+                    <li><strong>الوصول:</strong> يمكنك طلب نسخة من معلوماتك الشخصية التي نحتفظ بها</li>
+                    <li><strong>التصحيح:</strong> يمكنك طلب تصحيح أي معلومات غير دقيقة</li>
+                    <li><strong>الحذف:</strong> يمكنك طلب حذف معلوماتك الشخصية في ظروف معينة</li>
+                    <li><strong>تقييد المعالجة:</strong> يمكنك طلب تقييد كيفية استخدامنا لمعلوماتك</li>
+                    <li><strong>الاعتراض:</strong> يمكنك الاعتراض على معالجة معلوماتك لأغراض معينة</li>
+                </ul>
+                
+                <p>للمطالبة بأي من هذه الحقوق، يرجى التواصل معنا عبر البريد الإلكتروني: deddahhabib3@gmail.com</p>
+            </div>
+            
+            <div class="policy-section reveal">
+                <h2>التغييرات على سياسة الخصوصية</h2>
+                <p>قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. سننشر أي تغييرات على هذه الصفحة وسنخطرك عبر البريد الإلكتروني أو إشعار في التطبيق إذا كانت التغييرات جوهرية.</p>
+                <p>نشجعك على مراجعة سياسة الخصوصية بشكل دوري للبقاء على اطلاع حول كيفية حماية معلوماتك.</p>
+            </div>
+            
+            <div class="policy-section reveal">
+                <h2>تواصل معنا</h2>
+                <p>إذا كان لديك أي أسئلة أو استفسارات حول سياسة الخصوصية هذه أو ممارسات الخصوصية لدينا، يرجى التواصل معنا عبر:</p>
+                
+                <div class="contact-info-box">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <h4>البريد الإلكتروني</h4>
+                        <p><a href="mailto:deddahhabib3@gmail.com">deddahhabib3@gmail.com</a></p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <h4>الهاتف</h4>
+                        <p><a href="tel:+22237313810">+222 37 31 38 10</a></p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>العنوان</h4>
+                        <p>نواكشوط   الجمهورية الإسلامية الموريتانية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>EduRise</h3>
+                    <p>نظام متكامل يربط المدارس لتحسين جودة التعليم وتعزيز التواصل بين جميع أطراف العملية التعليمية.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="../index.html"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="../index.html#about"><i class="fas fa-chevron-left"></i> نبذة عنا</a></li>
+                        <li><a href="../index.html#features"><i class="fas fa-chevron-left"></i> المميزات</a></li>
+                        <li><a href="../index.html#download"><i class="fas fa-chevron-left"></i> تحميل التطبيق</a></li>
+                        <li><a href="../index.html#contact"><i class="fas fa-chevron-left"></i> تواصل معنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>روابط مهمة</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy.html"><i class="fas fa-chevron-left"></i> سياسة الخصوصية</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> شروط الاستخدام</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الأسئلة الشائعة</a></li>
+                        <li><a href="../index.html#contact"><i class="fas fa-chevron-left"></i> الدعم الفني</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>تواصل معنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:deddahhabib3@gmail.com"><i class="fas fa-envelope"></i> deddahhabib3@gmail.com</a></li>
+                        <li><a href="tel:+22237313810"><i class="fas fa-phone"></i> +222 37 31 38 10</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i>نواكشوط   الجمهورية الإسلامية الموريتانية</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة © 2025 EduRise. تم التطوير بحب لتحسين التعليم.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Scroll Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+        
+        window.addEventListener('scroll', reveal);
+        window.addEventListener('load', reveal);
+    </script>
+</body>
+</html>

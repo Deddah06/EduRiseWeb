@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>النسخة التجريبية - التواصل للحجز المسبق</title>
+    <link rel="icon" href="../images/EduRise Ico.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(to bottom, #ffffff, #f5f7fa);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            width: 90%;
+            max-width: 700px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid #eaeaea;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* تأثيرات زخرفية خفيفة */
+        .container::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, #e3f2fd, #bbdefb);
+            border-radius: 50%;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .container::after {
+            content: "";
+            position: absolute;
+            bottom: -60px;
+            left: -60px;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, #ffecb3, #ffd54f);
+            border-radius: 50%;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header {
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #1976d2, #0d47a1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(25, 118, 210, 0.2);
+        }
+        
+        .logo i {
+            font-size: 50px;
+            color: white;
+        }
+        
+        h1 {
+            color: #1a237e;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #5c6bc0;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        .message-box {
+            background: linear-gradient(to right, #f5f7fa, #e8eaf6);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 5px solid #1976d2;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .message-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231976d2' opacity='0.1'%3E%3Cpath d='M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z'/%3E%3C/svg%3E");
+            background-size: contain;
+            opacity: 0.1;
+        }
+        
+        .message {
+            color: #1a237e;
+            font-size: 22px;
+            line-height: 1.8;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .highlight {
+            color: #1976d2;
+            font-weight: bold;
+            position: relative;
+        }
+        
+        .highlight::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, transparent, #1976d2, transparent);
+            opacity: 0.5;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .whatsapp-btn {
+            background: linear-gradient(to right, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            font-size: 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(18, 140, 126, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .whatsapp-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #128C7E, #25D366);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(18, 140, 126, 0.4);
+        }
+        
+        .whatsapp-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .whatsapp-btn i {
+            font-size: 28px;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            color: #7986cb;
+            font-size: 16px;
+            border-top: 1px solid #e8eaf6;
+            padding-top: 20px;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+            
+            .container::before, .container::after {
+                display: none;
+            }
+            
+            h1 {
+                font-size: 26px;
+            }
+            
+            .message {
+                font-size: 18px;
+            }
+            
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .whatsapp-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="header">
+                <div class="logo">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h1>النسخة التجريبية</h1>
+                <p class="subtitle">كن من أوائل المستخدمين</p>
+            </div>
+            
+            <div class="message-box">
+                <p class="message">
+                    <span class="highlight">لم يتم بعد</span> إطلاق أول نسخة للإستخدام التجاري 
+                    <span class="highlight">ولكن</span> يمكنك التواصل مع الفريق للحجز المسبق 
+                    <span class="highlight">ويمكنهم</span> تزويدك بالنسخة التجريبية
+                </p>
+            </div>
+            
+            <div class="buttons">
+                <a href="https://wa.me/+22237313810?text=مرحبًا، أود الحجز المسبق للنسخة التجريبية" class="whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    التواصل للحجز المسبق
+                </a>
+                <a href="https://wa.me/+22237313810?text=مرحبًا، أود الحصول على النسخة التجريبية" class="whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    الحصول على النسخة التجريبية
+                </a>
+            </div>
+            
+            <div class="footer">
+                © 2025 جميع الحقوق محفوظة
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // إضافة تأثيرات تفاعلية للأزرار
+        document.querySelectorAll('.whatsapp-btn').forEach(button => {
+            button.addEventListener('mousedown', function() {
+                this.style.transform = 'scale(0.95)';
+            });
+            
+            button.addEventListener('mouseup', function() {
+                this.style.transform = '';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+            });
+        });
+    </script>
+</body>
+</html>

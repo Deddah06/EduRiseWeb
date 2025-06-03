@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduRise - نرتقي بالتعليم معًا</title>
+    <link rel="icon" href="images/EduRise Ico.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #10b981;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --accent: #f59e0b;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: 800;
+        }
+        
+        .logo i {
+            color: var(--secondary);
+            font-size: 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .hero-text {
+            flex: 1;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            animation: fadeInRight 1s ease;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .hero-text h1 span {
+            color: var(--secondary);
+            position: relative;
+        }
+        
+        .hero-text h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: var(--accent);
+            z-index: -1;
+            opacity: 0.5;
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--dark);
+            max-width: 600px;
+        }
+        
+        .download-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .platform-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .platform-icon {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .platform-icon:hover {
+            transform: translateY(-5px);
+        }
+        
+        .platform-icon i {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .about-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .icon-item {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #f0fdf4 100%);
+            transition: var(--transition);
+        }
+        
+        .icon-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .icon-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .icon-item h3 {
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+        
+        .feature-icon i {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .feature-card p {
+            color: var(--dark);
+        }
+        
+        /* Download Section */
+        .download {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1920');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+        
+        .download h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .download p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+        
+        .download-steps {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 50px auto;
+            max-width: 900px;
+        }
+        
+        .step {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .step h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 18px 45px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: var(--transition);
+            margin-top: 20px;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+        }
+        
+        .download-btn:hover {
+            background-color: #0da271;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.5);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .contact-wrapper {
+            display: flex;
+            gap: 60px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background-color: #f8fafc;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background-color: #1d4ed8;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-icon i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .contact-details h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .contact-details p, 
+        .contact-details a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-details a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #25d366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: var(--transition);
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128c7e;
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .footer-links i {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content, 
+            .about-content, 
+            .contact-wrapper {
+                flex-direction: column;
+            }
+            
+            .hero-text, 
+            .about-text, 
+            .contact-form, 
+            .contact-info {
+                text-align: center;
+            }
+            
+            .download-buttons, 
+            .platform-icons, 
+            .about-icons, 
+            .social-links {
+                justify-content: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.3rem;
+            }
+            
+            .download-buttons {
+                flex-direction: column;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Scroll animation */
+        .reveal {
+            position: relative;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 1s ease;
+        }
+        
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h1>EduRise</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#about">نبذة عنا</a></li>
+                    <li><a href="#features">المميزات</a></li>
+                    <li><a href="#download">تحميل التطبيق</a></li>
+                    <li><a href="#contact">تواصل معنا</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>نرتقي بالتعليم... <span>معًا</span></h1>
+                    <p>نظام EduRise يربط المدارس ويحسّن جودة التعليم من خلال التمكين والتواصل بين الإدارة والمعلمين والطلاب وأولياء الأمور، لخلق بيئة تعليمية متكاملة ومتطورة.</p>
+                    <div class="download-buttons">
+                        <a href="#download" class="btn btn-primary">تحميل التطبيق</a>
+                        <a href="#features" class="btn btn-outline">اكتشف المزيد</a>
+                    </div>
+                    <div class="platform-icons">
+                        <div class="platform-icon">
+                            <i class="fab fa-windows"></i>
+                        </div>
+                        <div class="platform-icon">
+                            <i class="fab fa-android"></i>
+                        </div>
+                        <div class="platform-icon">
+                            <i class="fab fa-apple"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=600" alt="EduRise App">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>ما هو EduRise؟</h2>
+            </div>
+            <div class="about-content reveal">
+                <div class="about-text">
+                    <p>EduRise هو نظام متكامل يربط بين المدارس لتحسين جودة التعليم من خلال دعم جميع أطراف العملية التعليمية: الإدارة، المعلمين، الطلاب، وأولياء الأمور.</p>
+                    <p>نهدف إلى خلق بيئة تعليمية تفاعلية تعزز التواصل والتعاون، وتوفر الأدوات اللازمة لتطوير العملية التعليمية وتمكين الجميع من المشاركة الفعالة في بناء مستقبل تعليمي أفضل.</p>
+                    <div class="about-icons">
+                        <div class="icon-item">
+                            <i class="fas fa-school"></i>
+                            <h3>ربط المدارس</h3>
+                        </div>
+                        <div class="icon-item">
+                            <i class="fas fa-users"></i>
+                            <h3>تعزيز التواصل</h3>
+                        </div>
+                        <div class="icon-item">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>تحسين الجودة</h3>
+                        </div>
+                        <div class="icon-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <h3>الابتكار التعليمي</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600" alt="Education Collaboration">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>مميزات EduRise</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>ربط ذكي بين المدارس</h3>
+                    <p>نظام متكامل يربط المدارس مع بعضها البعض لتبادل الخبرات والموارد التعليمية، مما يعزز التعاون ويوفر الوقت والجهد.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>دعم تطوير المعلمين</h3>
+                    <p>برامج تدريبية متطورة وورش عمل تفاعلية لتمكين المعلمين من تطوير مهاراتهم ومواكبة أحدث الأساليب التعليمية.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>أدوات تعليمية للطلاب</h3>
+                    <p>منصات تعليمية تفاعلية ومناهج دراسية مخصصة تلبي احتياجات الطلاب المختلفة وتنمي مهاراتهم وقدراتهم الإبداعية.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>مشاركة أولياء الأمور</h3>
+                    <p>قنوات تواصل مباشرة بين المدارس وأولياء الأمور لمتابعة تطور الطلاب والمشاركة الفعالة في العملية التعليمية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download" id="download">
+        <div class="container">
+            <h2>حمّل تطبيق EduRise الآن</h2>
+            <p>انضم إلى مجتمعنا التعليمي المتنامي واستفد من جميع المميزات التي يوفرها نظام EduRise لتحسين تجربتك التعليمية.</p>
+            
+            <div class="download-steps">
+                <div class="step reveal">
+                    <div class="step-number">1</div>
+                    <h3>اختر نظام التشغيل</h3>
+                    <p>اختر النسخة المناسبة لنظام التشغيل الخاص بك (ويندوز، أندرويد، أو iOS)</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-number">2</div>
+                    <h3>قم بالتحميل</h3>
+                    <p>انقر على زر التحميل وقم بحفظ الملف على جهازك</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-number">3</div>
+                    <h3>ابدأ الاستخدام</h3>
+                    <p>شغّل الملف المثبّت واتبع التعليمات البسيطة لبدء استخدام التطبيق</p>
+                </div>
+            </div>
+            
+            <a href="#" class="download-btn">تحميل الآن <i class="fas fa-download"></i></a>
+            
+            <div class="platform-icons" style="margin-top: 50px;">
+                <div class="platform-icon">
+                    <i class="fab fa-windows"></i>
+                </div>
+                <div class="platform-icon">
+                    <i class="fab fa-android"></i>
+                </div>
+                <div class="platform-icon">
+                    <i class="fab fa-apple"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>تواصل مع فريق EduRise</h2>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-form reveal">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">الرسالة</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                    </form>
+                </div>
+                <div class="contact-info reveal">
+                    <h3>طرق التواصل معنا</h3>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>البريد الإلكتروني</h4>
+                                <a href="mailto:deddahhabib3@gmail.com">deddahhabib@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>الهاتف</h4>
+                                <p>+222 37 31 38 10</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>العنوان</h4>
+                                <p>نواكشوط   الجمهورية الإسلامية الموريتانية</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://wa.me/+22237313810" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                    </a>
+                    
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/15bYbP6wdN/" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>EduRise</h3>
+                    <p>نظام متكامل يربط المدارس لتحسين جودة التعليم وتعزيز التواصل بين جميع أطراف العملية التعليمية.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-left"></i> نبذة عنا</a></li>
+                        <li><a href="#features"><i class="fas fa-chevron-left"></i> المميزات</a></li>
+                        <li><a href="#download"><i class="fas fa-chevron-left"></i> تحميل التطبيق</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-left"></i> تواصل معنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>روابط مهمة</h3>
+                    <ul class="footer-links">
+                        <li><a href="Pages/privacy.html"><i class="fas fa-chevron-left"></i> سياسة الخصوصية</a></li>
+                        <li><a href="Pages/privacy.html#"><i class="fas fa-chevron-left"></i> شروط الاستخدام</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الأسئلة الشائعة</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-left"></i> الدعم الفني</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>تواصل معنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:deddahhabib3@gmail.com"><i class="fas fa-envelope"></i> deddahhabib3@gmail.com</a></li>
+                        <li><a href="tel:+222 37313810"><i class="fas fa-phone"></i> +222 37313810</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> نواكشوط   الجمهورية الإسلامية الموريتانية</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة © 2025 EduRise. تم التطوير بحب لتحسين التعليم.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('شكرًا لتواصلك معنا! سنقوم بالرد عليك في أقرب وقت.');
+            contactForm.reset();
+        });
+        
+        // Scroll Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+        
+        window.addEventListener('scroll', reveal);
+        
+        // Initialize on load
+        window.addEventListener('load', () => {
+            reveal();
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (window.innerWidth <= 768) {
+                            navLinks.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
